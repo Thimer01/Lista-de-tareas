@@ -22,6 +22,7 @@ body{
   }
 
   .contenedor{
+    height: 600px;
     width: 400px;
     margin: 0 auto;
     max-width: 80%;
@@ -81,7 +82,7 @@ body{
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-items: space-between;
+    justify-content: space-between;
     margin: 5px 0;
   }
 
@@ -98,4 +99,9 @@ body{
   .tarea{
     font-size: 18px;
     color: var(--blanco);
+  }
+
+  .tachado{
+    text-decoration: line-through var(--celeste) 2px;
+    color: var(--celeste);
   }
