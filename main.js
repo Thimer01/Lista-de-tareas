@@ -18,7 +18,14 @@ const agragarTarea = (tarea) => {
 
                 lista.insertAdjacentHTML("beforeend", elemento);
 };
-//LLAMAR FUNCION
+
+const cambiarEstilo = () => {
+
+    const link = document.getElementById('style');
+
+    link.href = link.href.includes("style.css")? "style2.css" : "style.css";
+};
+//LLAMAR FUNCION POR CLICK
 
 mas.addEventListener('click', () => {
 
@@ -32,4 +39,24 @@ mas.addEventListener('click', () => {
 
     input.value = "";
 
-})
+});
+//LLAMAR POR ENTER
+
+document.addEventListener('keyup', (e) => {
+
+    if(e.key == 'Enter') {
+
+        const tarea = input.value
+
+    if(tarea) {
+
+        agragarTarea(tarea)
+
+    }
+
+    input.value = "";
+
+    }
+    
+});
+
