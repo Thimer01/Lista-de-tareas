@@ -108,5 +108,5 @@ body{
 
   .tachado{
     text-decoration: line-through var(--verde) 10px;
-    color: var(--blanco);
+    color: var(--lila);
   }

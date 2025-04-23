@@ -1,3 +1,5 @@
+const fecha = document.getElementById("fecha");
+
 const input = document.getElementById("agregar_una_tarea");
 
 const mas = document.getElementById("agragar");
@@ -8,21 +10,37 @@ const hecho = 'fa-check-circle';
 
 const pendiente = 'fa-circle';
 
-const tachado = 'tachado'
+const tachado = 'tachado';
 
-const agragarTarea = (tarea, check) => {
+let id = 0;
+
+const fechaActual = new Date();
+
+fecha.innerHTML = fechaActual.toLocaleDateString('es-AR', {
+
+    weekday:'long',
+    
+    month:'long',
+    
+    day:'numeric'
+
+});
+
+const agragarTarea = (tarea, check, eliminado, id) => {
+
+    if(eliminado) {return}
 
     const estado = check? hecho : pendiente;
 
     const tachar = check? tachado : "";
 
-    const elemento = `<li class="Thi_li" id="Thi_li">
+    const elemento = `<li class="Thi_li">
                     
-                    <i class="far ${estado} check" id="check" data="check"></i>
+                    <i class="far ${estado} check" id="check${id}" data="check"></i>
                     
-                    <p class="tarea ${tachado}" id="tarea"> ${tarea} </p>
+                    <p class="tarea ${tachar}"> ${tarea} </p>
                     
-                    <i class="fas fa-trash de" id="borrar" data="borrar"></i>
+                    <i class="fas fa-trash de" id="borrar${id}" data="borrar"></i>
                 
                 </li>`
 
@@ -52,14 +70,15 @@ const cambiarEstilo = () => {
 
 //LLAMAR FUNCION POR CLICK
 
-
 mas.addEventListener('click', () => {
 
     const tarea = input.value
 
     if(tarea) {
 
-        agragarTarea(tarea)
+        agragarTarea(tarea, false, false,id);
+
+        id++;
 
     }
 
@@ -76,7 +95,9 @@ document.addEventListener('keyup', (e) => {
 
     if(tarea) {
 
-        agragarTarea(tarea)
+        agragarTarea(tarea, false, false,id);
+
+        id++;
 
     }
 
@@ -90,7 +111,7 @@ lista.addEventListener('click', function(event) {
 
     const element = event.target;
 
-    const elementData = element.atributes.data.value;
+    const elementData = element.attributes.data.value;
 
     if(elementData == 'check'){
         
