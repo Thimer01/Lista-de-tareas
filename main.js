@@ -106,6 +106,8 @@ mas.addEventListener('click', () => {
 
         });
 
+        localStorage.setItem('GUARDADO',JSON.stringify(LIST));
+
         id++;
 
     }
@@ -145,6 +147,8 @@ document.addEventListener('keyup', (e) => {
 
         });
 
+        localStorage.setItem('GUARDADO',JSON.stringify(LIST));
+
         id++;
 
     }
@@ -159,7 +163,7 @@ lista.addEventListener('click', function(event) {
 
     const element = event.target;
 
-    const elementData = element.attributes.data.value;
+    const elementData = element.getAttribute("data");
 
     if(elementData == 'check'){
         
@@ -172,4 +176,32 @@ lista.addEventListener('click', function(event) {
         tareaEliminada(element)
 
     }
+
+    localStorage.setItem('GUARDADO',JSON.stringify(LIST));
+
 });
+
+let data = localStorage.getItem('GUARDADO');
+
+if(data){
+
+    LIST = JSON.parse(data);
+    console.log(LIST);
+
+    id = LIST.length;
+
+    cargarLista(LIST);
+}else {
+
+    LIST = [];
+
+    id = 0;
+};
+
+function cargarLista(array){
+
+    array.forEach(function(item){
+
+        agragarTarea(item.tarea,item.id,item.check,item.eliminado)
+    })
+};
