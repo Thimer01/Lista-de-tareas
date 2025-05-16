@@ -5,7 +5,7 @@
     --lila: rgb(158, 100, 206);
     --celeste: rgb(138, 224, 250);
     --azul: rgb(70, 67, 241);
-    --verde: rgb(54, 170, 93);
+    --verde: rgb(80, 221, 127);
     --fuente: "Dancing Script", cursive;
 }
 
@@ -19,7 +19,7 @@ body{
     background: linear-gradient(to bottom,var(--lila),var(--celeste)) ;
     height: 100vh;
     font-family: var(--fuente);
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .contenedor{
