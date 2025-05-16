@@ -202,6 +202,6 @@ function cargarLista(array){
 
     array.forEach(function(item){
 
-        agragarTarea(item.tarea,item.id,item.check,item.eliminado)
+        agragarTarea(item.tarea,item.check,item.eliminado,item.id)
     })
 };
